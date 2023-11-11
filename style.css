@@ -1,3 +1,30 @@
+h1 {
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 4em;
+  margin: 0;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+h1::before,
+h1::after {
+  content: "";
+  display: block;
+  height: 10px;
+  width: 100%;
+  background: 0;
+  margin: 10px 0;
+}
+
+.game {
+  margin: 0;
+  height: 97vh;
+  background: linear-gradient(to bottom, #87ceeb 0%, #1e90ff 100%);
+}
+
 .interface {
   display: flex;
   flex-direction: row;
@@ -8,10 +35,63 @@
   display: flex;
   border: 2px solid #000;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
-  width: 180px;
-  height: 180px;
+  width: 30vh;
+  height: 30.5vh;
+  margin-top: 5%;
+}
+
+.spinner {
+  position: fixed;
+
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  margin-top: 15vh;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 45%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.victory,
+.defeat {
+  font-family: "Arial", sans-serif;
+  color: #fff;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 2em;
+  margin: 0;
+  text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.victory {
+  color: #4caf50;
+}
+
+.defeat {
+  color: #ff6347;
 }
 
 .player {
@@ -22,8 +102,8 @@
 }
 
 .button {
-  width: 10px;
-  height: 13px;
+  width: 5%;
+  height: 73%;
   background-color: #fff;
   border: 1px solid #000;
   cursor: pointer;
@@ -33,12 +113,8 @@
   background-color: #ccc;
 }
 
-.button:active {
-  background-color: #999;
-}
-
 .player.ship {
-  background-color: lightpink;
+  background-color: #a96534;
 }
 
 .ghostShip {
@@ -54,7 +130,7 @@
 }
 
 .check {
-  background-color: blue;
+  background-color: #61b8f2;
 }
 
 .controls {
@@ -65,27 +141,9 @@
 }
 
 .controls button {
-  padding: 10px;
   margin: 5px;
 }
 
 .hidden {
-  display: none;
-}
-
-.arrow.right {
-  margin-top: 50px;
-  width: 0;
-  height: 0;
-  border-top: 20px solid transparent;
-  border-bottom: 20px solid transparent;
-  border-left: 20px solid #000;
-}
-
-.arrow.left {
-  width: 0;
-  height: 0;
-  border-top: 90px solid transparent;
-  border-bottom: 90px solid transparent;
-  border-right: 50px solid #000;
+  display: none !important;
 }

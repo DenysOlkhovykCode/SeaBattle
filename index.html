@@ -1,263 +1,275 @@
 <!DOCTYPE html>
 <html lang="uk">
   <head>
-    <title>Назва сторінки</title>
+    <title>Морський бій</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="interface">
-      <div class="player field">
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
+    <div class="game">
+      <h1>Морський бій</h1>
+      <div class="interface">
+        <div class="player field">
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
+          <div>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+            <button class="button player"></button>
+          </div>
         </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
+        <div class="spinner hidden"></div>
+        <div class="overlay victory hidden">
+          <h1 class="victory">Перемога</h1>
         </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
+        <div class="overlay defeat hidden">
+          <h1 class="defeat">Поразка</h1>
         </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-        </div>
-        <div>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
-          <button class="button player"></button>
+        <div class="ai field hidden">
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
+          <div>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+            <button class="button ai"></button>
+          </div>
         </div>
       </div>
-      <div class="arrow left hidden"></div>
-      <div class="ai field hidden">
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-        <div>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-          <button class="button ai"></button>
-        </div>
-      </div>
-    </div>
-    <div class="controls">
-      <div class="arrows">
-        <div>
-          <button class="rotate left">L</button>
-          <button class="rotate right">R</button>
+      <div class="controls">
+        <div class="arrows">
+          <button class="rotate left">
+            <img src="arrow_left.jpg" alt="Rotate Left" />
+          </button>
+
+          <button class="rotate right">
+            <img src="arrow_right.jpg" alt="Rotate Right" />
+          </button>
         </div>
       </div>
     </div>

@@ -6,6 +6,7 @@ let direction = 0;
 let lastBestHit = [-1, -1];
 let checkdirection = 0;
 let place = -1;
+let vicotdef = true;
 const playerButtons = document.querySelectorAll(".player.button");
 const aiButtons = document.querySelectorAll(".ai.button");
 const aiField = document.querySelectorAll(".ai.field");
@@ -14,6 +15,10 @@ const controls = document.querySelectorAll(".controls");
 
 const rotateLeft = document.querySelectorAll(".rotate.left");
 const rotateRight = document.querySelectorAll(".rotate.right");
+const spinner = document.querySelectorAll(".spinner");
+
+const victory = document.querySelectorAll(".overlay.victory");
+const defeat = document.querySelectorAll(".overlay.defeat");
 
 rotateLeft.forEach((button) => {
   button.addEventListener("click", () => {
@@ -39,17 +44,25 @@ async function PlaceShip(buttons, index) {
   row = Math.floor(index / 10);
   for (let i = 0; i < 4 - currentfigure; i++) {
     if (direction == 0 && row + 4 - currentfigure < 11) {
-      buttons[(row + i) * 10 + col].classList.add("ship");
-      flag = true;
+      if (row + i >= 0 && row + i < 10) {
+        buttons[(row + i) * 10 + col].classList.add("ship");
+        flag = true;
+      }
     } else if (direction == 1 && col + 4 - currentfigure < 11) {
-      buttons[row * 10 + (col + i)].classList.add("ship");
-      flag = true;
+      if (col + i >= 0 && col + i < 10) {
+        buttons[row * 10 + (col + i)].classList.add("ship");
+        flag = true;
+      }
     } else if (direction == 2 && row - 4 + currentfigure > -2) {
-      buttons[(row - i) * 10 + col].classList.add("ship");
-      flag = true;
+      if (row - i >= 0 && row - i < 10) {
+        buttons[(row - i) * 10 + col].classList.add("ship");
+        flag = true;
+      }
     } else if (direction == 3 && col - 4 + currentfigure > -2) {
-      buttons[row * 10 + (col - i)].classList.add("ship");
-      flag = true;
+      if (col - i >= 0 && col - i < 10) {
+        buttons[row * 10 + (col - i)].classList.add("ship");
+        flag = true;
+      }
     }
   }
   if (flag) {
@@ -64,6 +77,7 @@ async function PlaceShip(buttons, index) {
       currentfigure = 0;
 
       if (place == -1) {
+        spinner[0].classList.remove("hidden");
         do {
           await new Promise((resolve) => setTimeout(resolve, 100));
           place = Math.floor(Math.random() * 101);
@@ -72,7 +86,7 @@ async function PlaceShip(buttons, index) {
             PlaceShip(aiButtons, place);
           }
         } while (currentfigure != 0);
-        console.log("placed");
+        spinner[0].classList.add("hidden");
       }
     }
   }
@@ -166,85 +180,93 @@ playerButtons.forEach((button, index) => {
 });
 
 function attackShip(buttons, index) {
-  col = index % 10;
-  row = Math.floor(index / 10);
-  let flag = 0;
+  if (vicotdef) {
+    col = index % 10;
+    row = Math.floor(index / 10);
+    let flag = 0;
 
-  if (buttons[row * 10 + col].classList.contains("ship")) {
-    buttons[row * 10 + col].classList.add("hit");
-    buttons[row * 10 + col].classList.remove("ship");
-    flag = 2;
-    if (buttons == playerButtons) {
-      lastBestHit = [row, col];
-    }
-    for (let i = row; i < row + 4; i++) {
-      if (i > -1 && i < 10 && i != row) {
-        if (
-          !buttons[i * 10 + col].classList.contains("ship") &&
-          !buttons[i * 10 + col].classList.contains("hit")
-        ) {
-          break;
+    if (buttons[row * 10 + col].classList.contains("ship")) {
+      buttons[row * 10 + col].classList.add("hit");
+      buttons[row * 10 + col].classList.remove("ship");
+      flag = 2;
+      if (buttons == playerButtons) {
+        lastBestHit = [row, col];
+      }
+      for (let i = row; i < row + 4; i++) {
+        if (i > -1 && i < 10 && i != row) {
+          if (
+            !buttons[i * 10 + col].classList.contains("ship") &&
+            !buttons[i * 10 + col].classList.contains("hit")
+          ) {
+            break;
+          }
+          if (buttons[i * 10 + col].classList.contains("ship")) {
+            flag = 1;
+          }
         }
-        if (buttons[i * 10 + col].classList.contains("ship")) {
-          flag = 1;
+      }
+      for (let i = row; i > row - 4; i--) {
+        if (i > -1 && i < 10 && i != row) {
+          if (
+            !buttons[i * 10 + col].classList.contains("ship") &&
+            !buttons[i * 10 + col].classList.contains("hit")
+          ) {
+            break;
+          }
+          if (buttons[i * 10 + col].classList.contains("ship")) {
+            flag = 1;
+          }
+        }
+      }
+      for (let i = col; i < col + 4; i++) {
+        if (i > -1 && i < 10 && i != col) {
+          if (
+            !buttons[row * 10 + i].classList.contains("ship") &&
+            !buttons[row * 10 + i].classList.contains("hit")
+          ) {
+            break;
+          }
+          if (buttons[row * 10 + i].classList.contains("ship")) {
+            flag = 1;
+          }
+        }
+      }
+      for (let i = col; i > col - 4; i--) {
+        if (i > -1 && i < 10 && i != col) {
+          if (
+            !buttons[row * 10 + i].classList.contains("ship") &&
+            !buttons[row * 10 + i].classList.contains("hit")
+          ) {
+            break;
+          }
+          if (buttons[row * 10 + i].classList.contains("ship")) {
+            flag = 1;
+          }
         }
       }
     }
-    for (let i = row; i > row - 4; i--) {
-      if (i > -1 && i < 10 && i != row) {
-        if (
-          !buttons[i * 10 + col].classList.contains("ship") &&
-          !buttons[i * 10 + col].classList.contains("hit")
-        ) {
-          break;
-        }
-        if (buttons[i * 10 + col].classList.contains("ship")) {
-          flag = 1;
+    if (flag == 2) {
+      killShip(buttons, index);
+      if (buttons == aiButtons) {
+        if (countShips(buttons) < 1) {
+          victory[0].classList.remove("hidden");
+          vicotdef = false;
         }
       }
-    }
-    for (let i = col; i < col + 4; i++) {
-      if (i > -1 && i < 10 && i != col) {
-        if (
-          !buttons[row * 10 + i].classList.contains("ship") &&
-          !buttons[row * 10 + i].classList.contains("hit")
-        ) {
-          break;
-        }
-        if (buttons[row * 10 + i].classList.contains("ship")) {
-          flag = 1;
-        }
+      if (buttons == playerButtons) {
+        lastBestHit = [-1, -1];
+        checkdirection = 0;
+        aiMove(playerButtons);
       }
-    }
-    for (let i = col; i > col - 4; i--) {
-      if (i > -1 && i < 10 && i != col) {
-        if (
-          !buttons[row * 10 + i].classList.contains("ship") &&
-          !buttons[row * 10 + i].classList.contains("hit")
-        ) {
-          break;
-        }
-        if (buttons[row * 10 + i].classList.contains("ship")) {
-          flag = 1;
-        }
+    } else if (flag == 1) {
+      if (buttons == playerButtons) {
+        aiMove(playerButtons);
       }
-    }
-  }
-  if (flag == 2) {
-    killShip(buttons, index);
-    if (buttons == playerButtons) {
-      lastBestHit = [-1, -1];
-      checkdirection = 0;
-      aiMove(playerButtons);
-    }
-  } else if (flag == 1) {
-    if (buttons == playerButtons) {
-      aiMove(playerButtons);
-    }
-  } else if (flag == 0) {
-    buttons[index].classList.add("check");
-    if (buttons == aiButtons) {
-      aiMove(playerButtons);
+    } else if (flag == 0) {
+      buttons[index].classList.add("check");
+      if (buttons == aiButtons) {
+        aiMove(playerButtons);
+      }
     }
   }
 }
@@ -370,11 +392,14 @@ function countShips(buttons) {
 }
 
 async function aiMove(buttons) {
+  spinner[0].classList.toggle("hidden");
+
   await new Promise((resolve) => setTimeout(resolve, 1000));
   let i = 0;
 
   if (countShips(buttons) < 1) {
-    console.log("lose");
+    defeat[0].classList.remove("hidden");
+    vicotdef = flase;
   }
   if (lastBestHit[0] > -1 && lastBestHit[1] > -1) {
     let flag = false;
@@ -473,7 +498,7 @@ async function aiMove(buttons) {
       }
     }
   } else {
-    while (countships > 0) {
+    while (countShips(buttons) > 0) {
       i++;
       col = Math.floor(Math.random() * 10);
       row = Math.floor(Math.random() * 10);
@@ -503,6 +528,7 @@ async function aiMove(buttons) {
       }
     }
   }
+  spinner[0].classList.toggle("hidden");
 }
 
 aiButtons.forEach((button, index) => {
