@@ -1,0 +1,91 @@
+.interface {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.field {
+  display: flex;
+  border: 2px solid #000;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 180px;
+  height: 180px;
+}
+
+.player {
+  background-color: #b3e0ff;
+}
+.ai {
+  background-color: #ff9999;
+}
+
+.button {
+  width: 10px;
+  height: 13px;
+  background-color: #fff;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #ccc;
+}
+
+.button:active {
+  background-color: #999;
+}
+
+.player.ship {
+  background-color: lightpink;
+}
+
+.ghostShip {
+  background-color: lightgreen;
+}
+
+.hit {
+  background-color: red;
+}
+
+.ai.ship {
+  background-color: #ffe;
+}
+
+.check {
+  background-color: blue;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.controls button {
+  padding: 10px;
+  margin: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.arrow.right {
+  margin-top: 50px;
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #000;
+}
+
+.arrow.left {
+  width: 0;
+  height: 0;
+  border-top: 90px solid transparent;
+  border-bottom: 90px solid transparent;
+  border-right: 50px solid #000;
+}
